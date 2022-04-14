@@ -11,6 +11,7 @@ function App() {
   const [tareas, setTareas] = React.useState([])
   const [modoEdicion, setModoEdicion ] = React.useState(false)
   const [id, setId] = React.useState('')
+  const [error, setError] = React.useState(null)
 
   
   const agregarTarea = e => {
@@ -18,6 +19,7 @@ function App() {
     /* El método trim( ) elimina los espacios en blanco en ambos extremos del string. */
     if(!tarea.trim()){
       console.log('Elemento vacio')
+      setError('Escriba algo por favor...')
       return
     }
     console.log(tarea)
@@ -29,6 +31,7 @@ function App() {
     ])
 
     setTarea('')
+    setError(null)
   }
 
 
@@ -54,6 +57,7 @@ const editarTarea = e => {
   e.preventDefault()
   if(!tarea.trim()){
     console.log('elemento vacío')
+    setError ('Escriba algo porfavor...')
     return
   }
 
@@ -62,6 +66,7 @@ const editarTarea = e => {
     setModoEdicion(false)
     setTarea('')
     setId('')
+    setError(null)
 }
 
 
@@ -71,14 +76,51 @@ const editarTarea = e => {
 
   return (
     <div className="container">
-      <h1 className="text-center">CRUD de un array (Create, Read, Update, Delete)</h1>
+      <br />
+      <br />
+      <br />
+      <h1 className="text-center">LISTA DE COSAS IMPORTANTES</h1>
       <hr />
       <div className="row">
-        <div className="col-8">
+        <div className="col-12 col-sm-12 col-md-8">
           <h4 className="text-center">Lista de tareas</h4>
           <ul className="list-gorup">
 {/* --------- DESDE ACA AGREGAMOS EL ELEMENTO A LA LISTA DE TAREAS-------------  */}
-            {
+
+              {
+                tareas.length === 0 ? (
+                  <li className="list-group-item">NO HAY TAREAS</li>
+                ) : (
+
+                    tareas.map(item => (
+                      <li className="list-group-item" key={item.id} >
+                      <span className="lead">{item.nombreTarea}</span>
+      
+                      <button 
+                      className="btn btn-danger btn-sm float-right float-end mx-2"
+                      onClick={() => eliminarTarea(item.id) }
+                      >
+                        Eliminar
+                      </button>
+      
+      
+      
+                      <button 
+                      className="btn btn-warning btn-sm float-right float-end"
+                      onClick={() => editar(item)}
+                      >
+                        Editar
+                      </button>
+      
+                    </li>
+                    ))
+                  
+                  
+                  )
+                
+              }
+
+{/*             {
               tareas.map(item => (
                 <li className="list-group-item" key={item.id} >
                 <span className="lead">{item.nombreTarea}</span>
@@ -101,13 +143,13 @@ const editarTarea = e => {
 
               </li>
               ))
-            }
+            } */}
 
 
 
           </ul>
         </div>
-        <div className="col-4">
+        <div className="col-12 col-sm-12 col-md-4">
 
         <h4 className="text-center">{/* ------ AQUI ESTABA ANTES EL titulo  formulario----------- */}
           {
@@ -116,6 +158,9 @@ const editarTarea = e => {
         </h4>
 
         <form onSubmit={ modoEdicion ? editarTarea : agregarTarea }> {/* ------- F O R M U L A R I O ----------- */}
+        {
+          error ? <span className="text-danger"> {error} </span> : null
+        }
           <input 
           type="text" 
           className="form-control mb-2" 
