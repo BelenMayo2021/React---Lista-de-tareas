@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.lista{
+  background-color: rgb(241, 144, 144);
+}
+
+
+.formulario{
+  background-color: rgb(247, 255, 131);
+  padding: 10px;
+}
+
+
+.neg{
+  
+  padding: 125px;
+  margin-top: 35px;
+
+  background-color: rgb(232, 230, 238);
+
+}

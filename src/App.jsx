@@ -75,14 +75,13 @@ const editarTarea = e => {
 
 
   return (
-    <div className="container">
-      <br />
-      <br />
-      <br />
-      <h1 className="text-center">LISTA DE COSAS IMPORTANTES</h1>
+    <div className="container rounded-3 neg">
+
+      <h1 className="text-center">ACTIVIDADES PENDIENTES</h1>
       <hr />
       <div className="row">
-        <div className="col-12 col-sm-12 col-md-8">
+        <div className="col-12 col-sm-12 col-md-12 col-lg-7 rounded-3 lista">
+          <br />
           <h4 className="text-center">Lista de tareas</h4>
           <ul className="list-gorup">
 {/* --------- DESDE ACA AGREGAMOS EL ELEMENTO A LA LISTA DE TAREAS-------------  */}
@@ -149,7 +148,18 @@ const editarTarea = e => {
 
           </ul>
         </div>
-        <div className="col-12 col-sm-12 col-md-4">
+
+        <div className="col-12 col-sm-12 col-md-12 col-lg-1">
+          
+          <br />
+
+        </div>
+
+        
+
+        <div className="col-12 col-sm-12 col-md-12 col-lg-4 rounded-3 formulario">
+
+        <br />
 
         <h4 className="text-center">{/* ------ AQUI ESTABA ANTES EL titulo  formulario----------- */}
           {
