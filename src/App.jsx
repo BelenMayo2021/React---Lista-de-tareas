@@ -77,7 +77,7 @@ const editarTarea = e => {
   return (
     <div className="container rounded-3 neg">
 
-      <h1 className="text-center">ACTIVIDADES PENDIENTES</h1>
+      <h1 className="text-center">LISTA DE TAREAS PENDIENTES</h1>
       <hr />
       <div className="row">
         <div className="col-12 col-sm-12 col-md-12 col-lg-7 rounded-3 lista">

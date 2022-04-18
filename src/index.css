@@ -15,22 +15,22 @@ code {
 
 
 .lista{
-  background-color: rgb(241, 144, 144);
+  background-color: #7cc0a0;
 }
 
 
 .formulario{
-  background-color: rgb(247, 255, 131);
+  background-color: #7cc0a0;
   padding: 10px;
 }
 
 
 .neg{
   
-  padding: 125px;
-  margin-top: 35px;
-
-  background-color: rgb(232, 230, 238);
+  margin-top: 50px;
+  padding: 35px;
+  background-color: #5fa584;
+  color: white;
 
 }
 
@@ -46,6 +46,18 @@ code {
 
 
 @media (max-width: 500px){
+
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    margin-top: 0px;
+}
+
+
  
   .lista{
         flex-direction: column;
